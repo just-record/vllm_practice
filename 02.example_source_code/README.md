@@ -137,6 +137,8 @@ prompt = "그림을 배우는 로봇에 대한 짧은 이야기를 들려주세�
 
 05.basic_inference_chat.py
 
+`sh2orc/llama-3-korean-8b` 모델 사용: 한국어로 파인튜닝된 모델
+
 - `tokenizer`추가
 - `tokenizer.apply_chat_template` 추가
 - `stop_token_ids` 추가
@@ -154,7 +156,9 @@ prompt = "그림을 배우는 로봇에 대한 짧은 이야기를 들려주세�
 또한, 서울은 젊은 인구가 많은 도시로, 다양한 즐길 거리가 많습니다. 함께 볼 수 있는 곳으로는 명동, 홍대, 이태원, 명륜3사거리 등이 있습니다. 이외에도, 서울에는 다양한 박물관과 미술관, 공원과 공연장이 많습니다.
 ```
 
-## FastAPI 통합
+## FastAPI 통합 - meta-llama/Llama-3.1-8B-Instruct
+
+- 오프라인과 동일하게 문장은 생성 되나 생성이 종료 되지 않고 문장이 반복 됨
 
 06.fastapi_server.py
 
@@ -178,4 +182,32 @@ python3 07.fastapi_api_call.py
 Generated Text:
 1. 수도는 서울입니다. 2. 서울은 1,578.7k㎡의 면적을 가지고 있습니다. 3. 서울은 2021년 10월에 10,212,976명의 인구를 가지고
 ...
+```
+
+## FastAPI 통합 - sh2orc/llama-3-korean-8b
+
+- 한국어로 파인튜닝된 모델 사용
+- 정상 작동
+
+08.fastapi_server.py
+
+- FastAPI 서버 구현
+
+```bash
+python3 08.fastapi_server.py
+```
+
+09.fastapi_api_call.py
+
+- FastAPI 서버 호출
+
+```bash
+python3 09.fastapi_api_call.py
+```
+
+> 실행 결과
+
+```bash
+Generated Text:
+대한민국의 수도는 서울입니다. 서울은 대한민국의 역사적인 수도였으며, 한국의 경제, 문화, 정치, 교통의 중심지입니다. 서울은 아름다운 자연 경관과 다양한 문화유산을 보유하고 있으며, 많은 문화행사와 축제를 통해 대표되는 도시입니다. 또한, 현대적인 도시로 다양한 시설과 인프라가 잘 발달하고 있습니다.
 ```

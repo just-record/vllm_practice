@@ -7,9 +7,10 @@ API_URL = "http://localhost:8000/generate"
 # The request payload
 payload = {
     # "prompt": "Once upon a time in a digital world,",
-    "prompt": "Where is the capital of Korea? And please explain about it.",
-    # "prompt": "대한민국의 수도는 어디인가요? 그리고 그 수도에 대해 설명해주세요: ",
-    # "prompt": "대한민국의 수도는 어디인가요? ",
+    "messages":[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "대한민국의 수도는 어디인가요? 그리고 그 수도에 대해 설명해주세요."}, 
+    ],
     "max_tokens": 1000,
     "temperature": 0.8,
     "top_p": 0.95
